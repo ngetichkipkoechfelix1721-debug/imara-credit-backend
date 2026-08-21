@@ -1,5 +1,7 @@
 const express = require("express");
-
+const {
+  addApplication
+} = require("../services/applicationStore");
 const router = express.Router();
 
 const MIN_LOAN = 1000;
@@ -82,7 +84,7 @@ router.post("/", (req, res) => {
     "New Imara Credit application:",
     application.id
   );
-
+addApplication(application);
   res.status(201).json({
     success: true,
     message: "Imara Credit application received",

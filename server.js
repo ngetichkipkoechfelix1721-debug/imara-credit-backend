@@ -5,7 +5,8 @@ const cors = require("cors");
 
 const applicationRoute = require("./routes/application");
 const paystackRoutes = require("./routes/paystack");
-
+const adminRoutes = require("./routes/admin");
+const adminAuthRoutes = require("./routes/adminAuth");
 const app = express();
 
 app.use(cors());
@@ -20,7 +21,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/applications", applicationRoute);
 app.use("/api/paystack", paystackRoutes);
-
+app.use("/api/admin", adminRoutes);
+app.use("/api/admin-auth", adminAuthRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
